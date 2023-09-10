@@ -19,8 +19,8 @@ def get_info():
     utc_time_validated = utc_time.strftime('%Y-%m-%d %H:%M:%S')
 
     # Get GitHub URLs
-    github_url_file = 'https://github.com/alva-rita/your_repo/blob/main/silk.py'
-    github_url_source = 'https://github.com/alva-rita/your_repo'
+    github_url_file = 'https://github.com/alva-rita/Beer/blob/main/silk.py'
+    github_url_source = 'https://github.com/alva-rita/'Beer'
 
     # Create the response JSON
     response_data = {
