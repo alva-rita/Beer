@@ -20,7 +20,7 @@ def get_info():
 
     # Get GitHub URLs
     github_url_file = 'https://github.com/alva-rita/Beer/blob/main/silk.py'
-    github_url_source = 'https://github.com/alva-rita/'Beer'
+    github_url_source = 'https://github.com/alva-rita/Beer'
 
     # Create the response JSON
     response_data = {
