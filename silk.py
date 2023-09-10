@@ -3,9 +3,9 @@ import datetime
 import pytz
 import os
 
-silk = Flask(__name__)
+app = Flask(__name__)
 
-@silk.route('/endpoint', methods=['GET'])
+@app.route('/endpoint', methods=['GET'])
 def get_info():
     # Get query parameters
     slack_name = request.args.get('slack_name')
