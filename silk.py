@@ -5,6 +5,9 @@ import os
 
 app = Flask(__name__)
 
+# Specify the target time (UTC)
+target_time = datetime.datetime(2023, 9, 10, 12, 0, 0, tzinfo=pytz.utc)
+
 @app.route('/endpoint', methods=['GET'])
 def get_info():
     # Get query parameters
@@ -14,8 +17,17 @@ def get_info():
     # Get current day of the week
     current_day = datetime.datetime.now(pytz.utc).strftime('%A')
 
-    # Get current UTC time with validation of +/-2 hours
+    # Get current UTC time with validation of +/-2 minutes
+    
     utc_time = datetime.datetime.now(pytz.utc)
+
+    # Calculate the time difference in seconds
+    time_diff_seconds = abs((utc_time - target_time).total_seconds())
+
+    # Check if the time difference is within +/-2 minutes (120 seconds)
+    if time_diff_seconds > 120:
+        return jsonify({'error': 'Time is outside the acceptable window'}), 400
+        
     utc_time_validated = utc_time.strftime('%Y-%m-%d %H:%M:%S')
 
     # Get GitHub URLs
