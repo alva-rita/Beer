@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Specify the target time (UTC)
 target_time = datetime.datetime(2023, 9, 10, 12, 0, 0, tzinfo=pytz.utc)
 
-@app.route('/endpoint', methods=['GET'])
+@app.route('/api', methods=['GET'])
 def get_info():
     # Get query parameters
     slack_name = request.args.get('slack_name')
